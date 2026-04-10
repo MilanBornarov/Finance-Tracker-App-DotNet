@@ -1,0 +1,63 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<div class="container mt-5" style="max-width: 420px">
+
+    <div class="text-center mb-4">
+        <span style="font-size:3rem">📝</span>
+        <h2 class="fw-bold mt-2">Create Account</h2>
+        <p class="text-muted">Start tracking your finances today</p>
+    </div>
+
+    <div class="card shadow-sm border-0 p-4 rounded-4">
+
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Email" class="form-label fw-semibold">Email</label>
+                <input asp-for="Input.Email"
+                       class="form-control"
+                       placeholder="you@example.com"
+                       autofocus />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Password" class="form-label fw-semibold">Password</label>
+                <input asp-for="Input.Password"
+                       class="form-control"
+                       placeholder="••••••••" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.ConfirmPassword" class="form-label fw-semibold">Confirm Password</label>
+                <input asp-for="Input.ConfirmPassword"
+                       class="form-control"
+                       placeholder="••••••••" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 fw-semibold mt-2">
+                Create Account
+            </button>
+
+        </form>
+    </div>
+
+    <p class="text-center mt-3 text-muted small">
+        Already have an account?
+        <a asp-page="./Login" class="fw-semibold">Sign in</a>
+    </p>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,41 @@
+﻿@model FinanceTrackerApp.DTOs.TransactionDto
+@{
+    ViewData["Title"] = "Transaction Details";
+}
+
+<div class="container mt-4" style="max-width:600px">
+    <div class="card shadow-sm">
+        <div class="card-header fw-bold bg-dark text-white">Transaction Details</div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Description</dt>
+                <dd class="col-sm-8">@Model.Description</dd>
+
+                <dt class="col-sm-4">Amount</dt>
+                <dd class="col-sm-8 fw-bold @(Model.Type == "Income" ? "text-success" : "text-danger") ">
+                    @(Model.Type == "Income" ? "+" : "-") @Model.Amount.ToString("C")
+                </dd>
+                <dt class="col-sm-4">Type</dt>
+                <dd class="col-sm-8">
+                    <span class="badge @(Model.Type=="Income" ? "bg-success" : "bg-danger")">
+                        @Model.Type
+                    </span>
+                </dd>
+                
+                <dt class="col-sm-4">Category</dt>
+                <dd class="col-sm-8">@Model.Category</dd>
+
+                <dt class="col-sm-4">Date</dt>
+                <dd class="col-sm-8">@Model.Date.ToString("dd MMMM, yyyy")</dd>
+
+                <dt class="col-sm-4">Notes</dt>
+                <dd class="col-sm-8">@(Model.Notes ?? "-")</dd> @* Null-concealing op ?? *@
+            </dl>
+        </div>
+        <div class="card-footer d-flex gap-2">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Delete</a>
+            <a asp-action="Index" asp-route-id="@Model.Id" class="btn btn-secondary btn-sm">Back to list</a>
+        </div>
+    </div>
+</div>

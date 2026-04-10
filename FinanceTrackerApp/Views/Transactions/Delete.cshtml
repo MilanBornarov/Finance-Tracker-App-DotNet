@@ -1,0 +1,26 @@
+﻿@model FinanceTrackerApp.DTOs.TransactionDto
+@{
+    ViewData["Title"] = "Delete Transaction";
+}
+
+<div class="container mt-4" style="max-width:500px">
+
+    <div class="card border-danger shadow-sm">
+        <div class="card-header bg-danger text-white fw-bold">
+            Confirm Delete
+        </div>
+        <div class="card-body">
+            <p class="mb-1"><strong>Description:</strong> @Model.Description</p>
+            <p class="mb-1"><strong>Amount:</strong> @Model.Amount</p>
+            <p class="mb-3"><strong>Date:</strong> @Model.Date.ToString("dd MMM, yyyy")</p>
+            <p class="text-danger fw-semibold">This action cannot be undone.</p>
+        </div>
+        <div class="card-footer d-flex gap-2">
+            <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            </form>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+
+</div>

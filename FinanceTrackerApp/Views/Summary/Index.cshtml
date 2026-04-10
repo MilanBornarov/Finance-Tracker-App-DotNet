@@ -1,0 +1,149 @@
+﻿
+<style>
+    .card {
+        transition: all 0.2s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+    .table tr {
+        transition: 0.15s ease;
+    }
+
+        .table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+    .badge {
+        font-size: 0.75rem;
+    }
+
+    .btn {
+        transition: 0.2s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+</style>
+
+@model FinanceTrackerApp.ViewModels.SummaryViewModel
+@{
+    ViewData["Title"] = "Summary — " + Model.Query.Label;
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex align-items-center gap-2 flex-wrap mb-4">
+        <span class="text-muted small">📅 Filter:</span>
+
+        <a asp-action="Index"
+               class="btn btn-sm rounded-pill px-3 @(Model.Query.HasFilter ? "btn-light border" : "btn-primary")">
+            All
+        </a>
+
+        @foreach (var m in Model.AvailableMonths)
+        {
+            var isActive = Model.Query.Month == m.Month && Model.Query.Year == m.Year;
+
+            <a asp-action="Index"
+                   asp-route-month="@m.Month"
+                   asp-route-year="@m.Year"
+                   class="btn btn-sm rounded-pill px-3 @(isActive ? "btn-primary shadow-sm" : "btn-light border")">
+                @m.Label
+            </a>
+        }
+    </div>
+
+    <h2 class="fw-bold mb-4">📊 Summary — @Model.Query.Label</h2>
+
+    <div class="row g-3 mb-5">
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                <div class="text-muted small">Total Income</div>
+                <div class="fs-3 fw-bold text-success">
+                    +@Model.TotalIncome.ToString("C")
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                <div class="text-muted small">Total Expenses</div>
+                <div class="fs-3 fw-bold text-danger">
+                    -@Model.TotalExpense.ToString("C")
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                <div class="text-muted small">Net Balance</div>
+                <div class="fs-3 fw-bold @(Model.Balance >= 0 ? "text-primary" : "text-secondary")">
+                    @Model.Balance.ToString("C")
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-semibold mb-0">🧾 Recent Transactions</h5>
+                <a asp-controller="Transactions" asp-action="Index"
+                       class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                    View All
+                </a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table align-middle mb-0">
+
+                    <tbody>
+                        @foreach (var t in Model.RecentTransactions.Take(10))
+                        {
+                            <tr class="border-bottom">
+
+                                <td style="width: 110px;" class="text-muted small">
+                                    @t.Date.ToString("dd MMM")
+                                </td>
+
+                                <td class="fw-semibold">
+                                    @t.Description
+                                </td>
+
+                                <td>
+                                    <span class="badge bg-light text-dark border rounded-pill px-3 py-2">
+                                        @t.Category
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="badge rounded-pill px-3 py-2
+                                        @(t.Type == "Income" ? "bg-success-subtle text-success" : "bg-danger-subtle text-danger")">
+                                        @t.Type
+                                    </span>
+                                </td>
+
+                                <td class="text-end fw-bold
+                                    @(t.Type == "Income" ? "text-success" : "text-danger")">
+
+                                    @(t.Type == "Income" ? "+" : "-")@t.Amount.ToString("C")
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

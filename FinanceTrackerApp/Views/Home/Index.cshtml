@@ -1,0 +1,97 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold">Take Control of Your Finances</h1>
+        <p class="lead text-muted mt-3">
+            Track your income, manage expenses, and get a clear financial overview — all in one place.
+        </p>
+
+        @* Login/Register *@
+        <div class="mt-4">
+            <a class="btn btn-primary btn-lg me-3 px-4"
+                   asp-area="Identity" asp-page="/Account/Register">
+                Get Started
+            </a>
+
+            <a class="btn btn-outline-secondary btn-lg px-4"
+                   asp-area="Identity" asp-page="/Account/Login">
+                Login
+            </a>
+        </div>
+    </div>
+
+    @* Features *@
+    <div class="row text-center mt-5">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h4 class="fw-bold mb-3">💰 Track Income</h4>
+                    <p class="text-muted">
+                        Easily log and monitor all your income sources to understand your cash flow.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h4 class="fw-bold mb-3">📉 Manage Expenses</h4>
+                    <p class="text-muted">
+                        Categorize and analyze your spending habits to stay within budget.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h4 class="fw-bold mb-3">📊 Financial Summary</h4>
+                    <p class="text-muted">
+                        Get a clear overview of your balance, income, and expenses at a glance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @* Blabla *@
+    <div class="row mt-5 align-items-center">
+        <div class="col-md-6">
+            <h2 class="fw-bold">Simple. Clean. Powerful.</h2>
+            <p class="text-muted mt-3">
+                FinanceTracker helps you stay on top of your financial life without complexity.
+                Whether you're budgeting, saving, or just tracking — we've got you covered.
+            </p>
+        </div>
+
+        <div class="col-md-6 text-center">
+            <div class="p-5 bg-light rounded shadow-sm">
+                <h5 class="fw-bold">Start today</h5>
+                <p class="text-muted">Create your account and take control.</p>
+
+                <a class="btn btn-success mt-2 px-4"
+                       asp-area="Identity" asp-page="/Account/Register">
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
