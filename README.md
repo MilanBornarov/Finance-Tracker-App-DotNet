@@ -1,17 +1,17 @@
 # 💰 Finance Tracker App
 
-A modern and fully-featured personal finance tracking web application built with **ASP.NET Core MVC**, **Entity Framework Core**, and **Microsoft SQL Server**.
+A modern and feature-rich personal finance tracking web application built with **ASP.NET Core MVC**, **Entity Framework Core**, and **Microsoft SQL Server**.
 
-The application enables users to securely manage income and expenses, analyze monthly financial activity, filter and sort transactions, and maintain complete financial oversight through a clean and responsive user interface.
+The application allows users to securely manage income and expenses, analyze monthly financial activity, filter and sort transactions, and maintain complete financial oversight through a clean and responsive user interface.
 
 ---
 
-## ✨ Application Preview
+# ✨ Application Preview
 
 ## 🔐 Authentication & Dashboard
 
 <p align="center">
-  <img src="./Assets/HomeLoginIndex.gif" width="100%" alt="Finance Tracker Demo"/>
+  <img src="./FinanceTrackerApp/Assets/HomeLoginIndex.gif" width="100%" alt="Finance Tracker Demo"/>
 </p>
 
 ---
@@ -19,7 +19,7 @@ The application enables users to securely manage income and expenses, analyze mo
 ## 📊 Monthly Financial Summary
 
 <p align="center">
-  <img src="./Assets/Summary.png" width="100%" alt="Finance Summary"/>
+  <img src="./FinanceTrackerApp/Assets/Summary.png" width="100%" alt="Finance Summary"/>
 </p>
 
 ---
@@ -31,6 +31,7 @@ The application enables users to securely manage income and expenses, analyze mo
 - Secure Login & Logout
 - ASP.NET Core Identity integration
 - Authentication-protected routes and actions
+- Session-based user authorization
 
 ---
 
@@ -39,8 +40,8 @@ The application enables users to securely manage income and expenses, analyze mo
 - Create expense transactions
 - Edit transactions
 - Delete transactions
-- Transaction details view
-- Category-based organization
+- View transaction details
+- Category-based transaction organization
 
 ---
 
@@ -54,7 +55,7 @@ Filter transactions by:
 ---
 
 ## 📈 Sorting & Analytics
-- Sort by:
+- Sort transactions by:
   - Amount
   - Date
   - Ascending / Descending
@@ -95,6 +96,9 @@ Filter transactions by:
 ```txt
 FinanceTrackerApp/
 ├── Areas/
+├── Assets/
+│   ├── HomeLoginIndex.gif
+│   └── Summary.png
 ├── Controllers/
 ├── Data/
 ├── DTOs/
@@ -108,12 +112,9 @@ FinanceTrackerApp/
 ├── ViewModels/
 ├── Views/
 ├── wwwroot/
-├── assets/
-│   ├── HomeLoginIndex.gif
-│   └── Summary.png
 ├── Program.cs
 ├── appsettings.json
-└── README.md
+└── ScaffoldingReadMe.txt
 ```
 
 ---
