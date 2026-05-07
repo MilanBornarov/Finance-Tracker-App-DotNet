@@ -11,7 +11,7 @@ The application enables users to securely manage income and expenses, analyze mo
 ## 🔐 Authentication & Dashboard
 
 <p align="center">
-  <img src="./assets/HomeLoginIndex.gif" width="100%" alt="Finance Tracker Demo"/>
+  <img src="./Assets/HomeLoginIndex.gif" width="100%" alt="Finance Tracker Demo"/>
 </p>
 
 ---
@@ -19,7 +19,7 @@ The application enables users to securely manage income and expenses, analyze mo
 ## 📊 Monthly Financial Summary
 
 <p align="center">
-  <img src="./assets/Summary.png" width="100%" alt="Finance Summary"/>
+  <img src="./Assets/Summary.png" width="100%" alt="Finance Summary"/>
 </p>
 
 ---
